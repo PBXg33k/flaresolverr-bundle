@@ -89,7 +89,7 @@ class ExampleController extends AbstractController
     {
         $response = $this->flareSolverrClient->requestGet('https://example.com');
         
-        $HTMLContentAsString  = $response->getResponseContent()
+        $HTMLContentAsString  = $response->getResponseContent();
         $HTMLDocumentAsDOMDocument = $response->getResponseContentAsHTMLDocument();
         
         // Do your magic with the response here
