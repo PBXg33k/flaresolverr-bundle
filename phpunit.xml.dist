@@ -31,7 +31,7 @@
               pathCoverage="true"
     >
         <report>
-            <clover outputFile="builds/logs/clover.xml"/>
+            <clover outputFile="build/logs/clover.xml"/>
             <html outputDirectory="builds/logs/coverage"/>
         </report>
     </coverage>
