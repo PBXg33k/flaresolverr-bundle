@@ -29,7 +29,7 @@ class FlareSolverrBundle extends AbstractBundle
                                     ->info('The session ID to use for requests.')
                                 ->end() // id
                                 ->integerNode('ttl_timeout')
-                                    ->defaultValue(120)
+                                    ->defaultValue(3600)
                                     ->info('The session TTL timeout in seconds.')
                                 ->end() // ttl_timeout
                             ->end() // children

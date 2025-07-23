@@ -7,7 +7,7 @@ use Pbxg33k\FlareSolverrBundle\Enum\StatusEnum;
 class HealthResponse
 {
     public function __construct(
-        protected(set) StatusEnum $status,
+        protected(set) StatusEnum $status
     )
     {
     }
@@ -19,8 +19,4 @@ class HealthResponse
         );
     }
 
-    public function getStatus(): StatusEnum
-    {
-        return $this->status;
-    }
 }

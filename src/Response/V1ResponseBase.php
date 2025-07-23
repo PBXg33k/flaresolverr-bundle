@@ -24,7 +24,7 @@ class V1ResponseBase
     public static function fromArray(array $data): self
     {
         $instance = new self(
-            status: $data['status'] ? StatusEnum::from($data['status']) : StatusEnum::ERROR,
+            status: !empty($data['status']) ? StatusEnum::from($data['status']) : StatusEnum::ERROR,
             message: $data['message'] ?? null,
             session: $data['session'] ?? null,
             sessions: $data['sessions'] ?? null,
