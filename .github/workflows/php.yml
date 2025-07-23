@@ -39,7 +39,7 @@ jobs:
         # @link https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
         #
         # The matrix is set up so as not to duplicate the builds which are run for code coverage.
-        php: ['8.3']
+        php: ['8.4']
         phpcs_version: ['lowest', 'dev-master']
         experimental: [false]
 
