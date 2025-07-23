@@ -3,4 +3,4 @@
 /.phpunit.result.cache
 /var/
 composer.lock
-/builds/logs
+/build/logs

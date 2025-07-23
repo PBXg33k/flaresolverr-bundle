@@ -36,6 +36,6 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-        Pbxg33k\FlareSolverrBundle\Pbxg33kFlareSolverrBundle::class => ['all' => true],
+        Pbxg33k\FlareSolverrBundle\FlareSolverrBundle::class => ['all' => true],
 ];
 ```

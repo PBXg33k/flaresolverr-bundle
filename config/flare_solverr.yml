@@ -1,0 +1,19 @@
+services:
+  Pbxg33k\FlareSolverrBundle\Service\FlareSolverrClient:
+    alias: 'flare_solverr.client'
+
+
+  flare_solverr.client:
+    autowire: true
+    class: Pbxg33k\FlareSolverrBundle\Service\FlareSolverrClient
+    arguments:
+      - '@http_client'
+      - '@logger'
+      - '@event_dispatcher'
+
+  flare_solverr.command.healthcheck:
+    class: Pbxg33k\FlareSolverrBundle\Command\FlareSolverrHealthCheckCommand
+    arguments:
+      - '@flare_solverr.client'
+    tags:
+      - { name: 'console.command', command: 'flare_solverr:healthcheck' }
