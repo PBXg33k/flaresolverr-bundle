@@ -25,6 +25,7 @@ jobs:
   test:
     if: ${{ github.ref != 'refs/heads/develop' }}
     # No use running the tests if there is a linting error somewhere as they would fail anyway.
+    needs: lint
 
     runs-on: ubuntu-latest
 
@@ -45,16 +46,6 @@ jobs:
         experimental: [false]
 
         include:
-          - php: '7.2'
-            phpcs_version: '^3.10.0'
-            custom_ini: true
-            experimental: false
-
-          # Experimental builds. These are allowed to fail.
-          #- php: '7.4'
-          #  phpcs_version: '4.0.x-dev@dev'
-          #  experimental: true
-
           - php: '8.5' # Nightly.
             phpcs_version: 'dev-master'
             experimental: true
