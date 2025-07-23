@@ -1,0 +1,26 @@
+{
+    "name": "pbxg33k/flaresolverr-bundle",
+    "description": "A Symfony bundle to easily make use of FlareSolverr",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pbxg33k\\FlareSolverrBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pbxg33k\\FlareSolverrBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "symfony/http-kernel": "^7.3",
+        "symfony/http-client-contracts": "^3.6",
+        "psr/log": "^3.0",
+        "psr/cache": "^3.0",
+        "psr/event-dispatcher": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.2"
+    }
+}
