@@ -4,6 +4,7 @@ namespace Pbxg33k\Test\FlareSolverrBundle\Client;
 
 use Pbxg33k\FlareSolverrBundle\Client\FlareSolverrClient;
 use Pbxg33k\FlareSolverrBundle\Enum\StatusEnum;
+use Pbxg33k\FlareSolverrBundle\Response\IndexResponse;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -21,6 +22,38 @@ class FlareSolverrClientTest extends TestCase
         $this->httpClient = $this->createMock(HttpClientInterface::class);
         $this->logger = $this->createMock(LoggerInterface::class);
         $this->eventDispatcher = $this->createMock(EventDispatcherInterface::class);
+    }
+
+    public function testIndex()
+    {
+        $flareSolverrUrl = 'http://example.com/';
+        $this->httpClient->expects($this->once())
+            ->method('request')
+            ->with('GET', $flareSolverrUrl)
+            ->willReturn(
+                $this->createMockResponse(
+                    statusCode: 200,
+                    content: '{"msg":"FlareSolverr is ready!","version":"1.0.0","userAgent":"FlareSolverr"}',
+                    arrayContent: [
+                        'msg' => 'FlareSolverr is ready!',
+                        'version' => '1.0.0',
+                        'userAgent' => 'FlareSolverr',
+                    ],
+                )
+            );
+
+        $client = new FlareSolverrClient(
+            httpClient: $this->httpClient,
+            logger: $this->logger,
+            dispatcher: $this->eventDispatcher,
+            flareSolverrRootUrl: 'http://example.com',
+        );
+
+        $response = $client->index();
+        $this->assertInstanceOf(IndexResponse::class, $response);
+        $this->assertEquals('FlareSolverr is ready!', $response->msg);
+        $this->assertEquals('1.0.0', $response->version);
+        $this->assertEquals('FlareSolverr', $response->userAgent);
     }
 
     public function testCheckHealth()

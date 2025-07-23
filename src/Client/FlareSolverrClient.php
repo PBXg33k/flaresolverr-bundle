@@ -9,6 +9,7 @@ use Pbxg33k\FlareSolverrBundle\{Enum\CommandEnum,
     Enum\StatusEnum,
     Request\V1RequestBase,
     Response\HealthResponse,
+    Response\IndexResponse,
     Response\V1ResponseBase};
 
 class FlareSolverrClient
@@ -20,6 +21,13 @@ class FlareSolverrClient
         protected string                   $flareSolverrRootUrl,
     )
     {
+    }
+
+    public function index(): IndexResponse
+    {
+        $response = $this->httpClient->request('GET', $this->flareSolverrRootUrl . '/');
+
+        return IndexResponse::fromArray($response->toArray());
     }
 
     public function checkHealth(): bool
