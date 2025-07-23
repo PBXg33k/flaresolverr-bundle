@@ -83,7 +83,6 @@ class ExampleController extends AbstractController
         private(set) FlareSolverrClient $flareSolverrClient
     )
     {
-        $this->flareSolverrClient = $flareSolverrClient;
     }
 
     public function index(): Response
