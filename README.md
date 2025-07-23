@@ -1,5 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/PBXg33k/flaresolverr-bundle/badge.svg)](https://coveralls.io/github/PBXg33k/flaresolverr-bundle)
-
+[![Coverage Status](https://coveralls.io/repos/github/PBXg33k/flaresolverr-bundle/badge.svg?branch=master)](https://coveralls.io/github/PBXg33k/flaresolverr-bundle?branch=master)
 # FlareSolverrBundle
 
 This Symfony bundle provides an easy way to integrate the [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) proxy service into your Symfony applications.
