@@ -31,8 +31,8 @@
               pathCoverage="true"
     >
         <report>
-            <clover outputFile="var/clover.xml"/>
-            <html outputDirectory="var/coverage"/>
+            <clover outputFile="builds/logs/clover.xml"/>
+            <html outputDirectory="builds/logs/coverage"/>
         </report>
     </coverage>
 </phpunit>
