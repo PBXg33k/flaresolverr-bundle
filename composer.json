@@ -27,5 +27,7 @@
         "test": [
             "phpunit"
         ]
+    },
+    "config": {
     }
 }
