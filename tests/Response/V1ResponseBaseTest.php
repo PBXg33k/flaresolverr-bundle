@@ -40,6 +40,23 @@ class V1ResponseBaseTest extends TestCase
         $this->assertEquals('Response content', $response->solution->response);
     }
 
+    public function testFromArrayWithMissingStatusGivesStatusEnumErrorOnStatus()
+    {
+        $data = [
+            'message' => 'Missing status',
+            'session' => 'abc123',
+            'startTimestamp' => 1633072800,
+            'endTimestamp' => 1633076400,
+        ];
+
+        $response = V1ResponseBase::fromArray($data);
+        $this->assertInstanceOf(V1ResponseBase::class, $response);
+        $this->assertEquals(StatusEnum::ERROR, $response->status);
+        $this->assertEquals('Missing status', $response->message);
+        $this->assertEquals('abc123', $response->session);
+        $this->assertNull($response->solution);
+    }
+
     public function testGetTimeDiff()
     {
         $data = [

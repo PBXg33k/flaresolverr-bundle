@@ -40,7 +40,7 @@ class FlareSolverrClient
                 $statusResponse = HealthResponse::fromArray($response->toArray());
                 // Parse the response to check the health status
                 // It MUST be a JSON response with a 'status' field with value 'ok
-                return $statusResponse->getStatus() === StatusEnum::OK;
+                return $statusResponse->status === StatusEnum::OK;
             } else {
                 $this->logger->warning('FlareSolverr health check failed with status code: ' . $statusCode);
                 return false;
@@ -61,7 +61,7 @@ class FlareSolverrClient
         return $this->sendV1Request(CommandEnum::REQUEST_GET, $request);
     }
 
-    public function sessionCreate(?string $sessionID = null)
+    public function sessionCreate(?string $sessionID = null): V1ResponseBase
     {
         $request = new V1RequestBase(
             url: null,
@@ -71,14 +71,14 @@ class FlareSolverrClient
         return $this->sendV1Request(CommandEnum::SESSION_CREATE, $request);
     }
 
-    public function sessionList()
+    public function sessionList(): V1ResponseBase
     {
         $request = new V1RequestBase(url: null);
 
         return $this->sendV1Request(CommandEnum::SESSION_LIST, $request);
     }
 
-    public function sessionDestroy(string $sessionID)
+    public function sessionDestroy(string $sessionID): V1ResponseBase
     {
         $request = new V1RequestBase(
             url: null,
